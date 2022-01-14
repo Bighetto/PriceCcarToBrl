@@ -1,9 +1,11 @@
 import requests
 import json
+import time
+
 
 def buscar_dados():
     request = requests.get("https://api.pancakeswap.info/api/v2/tokens/0x50332bdca94673F33401776365b66CC4e81aC81d")
-    # print(request.content)
+        # print(request.content)
     jsonFormatado = json.loads(request.content)
     valorCCAR = (jsonFormatado.get("data").get("price"))
 
@@ -19,6 +21,9 @@ def buscar_dados():
 
     print(f'A cotação de um CCAR para o valor do REAL atualmente é : R$%.2f' %conversao )
 
+        
 
-if __name__ == '__main__':
-    buscar_dados()
+while True:
+    time.sleep(10)
+    if __name__ == '__main__':
+        buscar_dados()
